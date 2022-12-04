@@ -1,0 +1,149 @@
+.container_main {
+    background-color: #fff;
+    width: 100vh;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.container_credentials {
+    display: block;
+    flex-direction: column;
+    width: min-content;
+}
+
+.container_design {
+    width: 100%;
+    background-color: aliceblue;
+}
+
+.container_credential {
+    margin-top: 2rem;
+}
+
+.container_credentials>h1 {
+    margin: 1rem 0;
+    font-size: 4rem;
+    color: var(--text-color-900);
+}
+
+.container_credentials>h3 {
+    margin: 1rem 0;
+    font-size: 1rem;
+    color: var(--text-color-400);
+}
+
+.container_input {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+    align-items: flex-start;
+}
+
+.container_signup {
+    margin-top: 2rem;
+    color: var(--text-color-400);
+}
+
+.back_icon {
+    left: 0;
+    top: 0;
+    margin: 2rem;
+    font-size: 2rem;
+    position: absolute;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.link {
+    color: var(--primary-color);
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.label {
+    margin-left: 4px;
+    font-size: 1rem;
+}
+
+.margin_left_auto {
+    margin-left: auto;
+}
+
+.margin_left_16 {
+    margin-left: 16px;
+}
+
+.checkbox {
+    width: 32px;
+    height: 32px;
+}
+
+.button {
+    margin-top: 2rem;
+    width: 100%;
+    height: 42px;
+    background-color: var(--primary-color);
+    border-style: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.button:hover {
+    filter: brightness(1.1);
+}
+
+.button:active {
+    transform: scale(0.99);
+}
+
+.container_design {
+    background-color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.q {
+    font-size: 16rem;
+    color: var(--primary-color)
+}
+
+.userpic {
+    height: 100vh;
+    object-fit: cover;
+}
+
+.credential_warning {
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #fca5a5;
+    color: #dc2626;
+    border-radius: 8px;
+    gap: 8px;
+}
+
+.hidden {
+    display: none;
+}

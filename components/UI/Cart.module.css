@@ -1,0 +1,21 @@
+.container_main {
+    background-color: var(--primary-color);
+    height: 40px;
+    padding: 8px 16px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: white;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.container_main:hover {
+    filter: brightness(1.2);
+}
+
+.icon {
+    margin-right: 4px;
+}

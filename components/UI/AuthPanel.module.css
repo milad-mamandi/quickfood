@@ -1,0 +1,29 @@
+.container_main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 8px;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--ui-color);
+    height: 36px;
+    padding: 0 1rem;
+    border-radius: 16px;
+    outline: none;
+    border-style: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.button:hover {
+    background-color: var(--ui-color-active);
+}
+
+.icon {
+    margin-right: 8px;
+}

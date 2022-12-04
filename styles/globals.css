@@ -1,0 +1,49 @@
+:root {
+  --primary-color: #FF6701;
+  --secondary-color: #FEA82F;
+  --text-color-900: #171717;
+  --text-color-700: #404040;
+  --text-color-500: #737373;
+  --text-color-400: #a3a3a3;
+  --searchbar-color: #f5f5f5;
+  --searchbar-item-hover-color: #e5e5e5;
+  --progressbar-color: #d4d4d4;
+  --progressbar-active-color: var(--secondary-color);
+  --ui-color : #eee;
+  --ui-color-active : #e2e2e2;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.spacer._4 {
+  width: 4px;
+}
+
+.spacer._8 {
+  width: 8px;
+}
+
+.spacer._16 {
+  width: 16px;
+}
+
+.spacer._24 {
+  width: 23px;
+}
+
+.spacer._32 {
+  width: 32px;
+}

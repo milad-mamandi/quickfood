@@ -1,0 +1,37 @@
+.container_main {
+    padding: 12px 24px;
+}
+
+.container_list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    list-style: none;
+}
+
+.container_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.container_item:hover .picture{
+    background-color: var(--ui-color-active);
+}
+.picture {
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.text {
+    margin-top: 4px;
+    font-size: 1rem;
+}
+
+.hrline{
+    border: 1px solid var(--ui-color-active);
+    margin-top: 24px;
+}

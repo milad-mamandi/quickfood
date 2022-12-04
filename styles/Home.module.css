@@ -1,0 +1,191 @@
+.main {
+    margin: 0;
+}
+
+/* Navbar */
+
+.navbar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.logo {
+    margin: 0;
+    font-size: 3rem;
+}
+
+.bold {
+    color: var(--primary-color);
+}
+
+.nav_ul {
+    margin-left: 8rem;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.nav_ul>li>a {
+    font-size: 1.5rem;
+    color: #334155;
+}
+
+.nav_ul>li>a:hover {
+    color: var(--primary-color);
+}
+
+.auth_container {
+    display: flex;
+    gap: 1rem;
+    margin-left: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 40px;
+    border-style: solid;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.button_login {
+    background-color: transparent;
+    border-color: white;
+    color: white;
+}
+
+.button_login:hover {
+    background-color: white;
+    color: var(--text-color-700);
+}
+
+.button_login:active {
+    filter: brightness(0.9);
+}
+
+.button_signup {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.button_signup:hover {
+    filter: brightness(1.2);
+}
+
+.button_signup:active {
+    filter: brightness(1.4);
+}
+
+/* Header */
+
+.text_container {
+    margin-top: 8rem;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color-900);
+}
+
+.text_container h1,
+.text_container h3 {
+    margin: 0;
+}
+
+.small_text {
+    margin-top: 1rem;
+}
+
+.text_1 {
+    font-size: 4.5rem;
+}
+
+.text_2 {
+    font-size: 4rem;
+}
+
+.text_3 {
+    font-size: 1rem;
+    color: var(--text-color-500);
+}
+
+.auth_text{
+    margin-top: 2rem;
+    font-size: 1rem;
+    color: var(--text-color-500);
+}
+
+.link {
+    color: var(--primary-color)
+}
+
+/* Pictures */
+
+.container_main {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    height: 100%;
+}
+
+.container_data {
+    margin: 2rem 8rem;
+}
+
+.container_pics {
+    z-index: -1;
+    position: absolute;
+    right: 0;
+    top: 0rem;
+    height: 100vh;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container_content {
+    max-width: fit-content;
+}
+
+.table_pic {
+    border-radius: 700px;
+    transform: translate(35%, -3%);
+}
+
+.salad_pic {
+    z-index: 1;
+    position: absolute;
+    top: 15%;
+    left: 10%;
+}
+
+.peppers_pic{
+    position: absolute;
+    left: 65%;
+    top: 15%;
+    z-index: 1;
+}
+
+.leaf_pic{
+    position: absolute;
+    left: 60%;
+    top: 75%;
+    z-index: 1;
+}
+
+.tomatoes_pic{
+    position: absolute;
+    left: 70%;
+    top: 45%;
+    z-index: 1;
+}
