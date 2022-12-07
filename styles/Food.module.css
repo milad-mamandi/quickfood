@@ -1,0 +1,14 @@
+.container_main {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.sidebar {
+    margin: 24px 32px;
+    position: sticky;
+    position: -webkit-sticky;
+}
+
+.main {
+    margin: 24px 32px;
+}
