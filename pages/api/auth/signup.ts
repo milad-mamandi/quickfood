@@ -25,8 +25,6 @@ const registerUser = async (props: registerType) => {
     }
 }
 export default async function AuthHandler(req: NextApiRequest, res: NextApiResponse) {
-    console.log(req.body);
-    
     if (req.method === 'POST') {
         const user = (() => {
             try {

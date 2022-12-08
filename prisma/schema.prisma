@@ -16,3 +16,12 @@ model User {
   email String
   password String
 }
+
+model Store {
+  id String @id @default(cuid())
+  name String
+  address String
+  delivery_fee Float
+  rating Float
+  open_time String
+}

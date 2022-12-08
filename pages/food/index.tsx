@@ -5,9 +5,24 @@ import Categories from "../../components/Food/Categories";
 import Filterbar from "../../components/Food/Filterbar";
 import Stores from "../../components/Food/Stores";
 import { Poppins } from "@next/font/google";
+import { useEffect, useState } from "react";
 const poppins = Poppins({ weight: '400' });
 
 const Food = () => {
+    const [isLoading, setLoading] = useState(false)
+    const [storeData, setStoreData] = useState([])
+    const [params, setParams] = useState({ 'limit': '10', 'offset': '0' })
+
+    useEffect(() => {
+        setLoading(true)
+        const data = fetch('/api/data/store?' + new URLSearchParams(params), { method: 'GET' })
+        .then((res) => res.json())
+        .then((data) => {
+            setStoreData(data.data)
+            setLoading(false)
+        })
+    }, [])
+    console.log(storeData)
     return (
         <div className={poppins.className}>
             <Navbar />

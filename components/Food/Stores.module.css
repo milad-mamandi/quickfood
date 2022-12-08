@@ -2,19 +2,27 @@
     width: 320px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     cursor: pointer;
 }
 
 .container_desc {
     margin-top: 8px;
-    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    font-size: large;
+}
+
+.container_info {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
-    font-size: large;
+    font-size: 0.95rem;
 }
 
 .name {
@@ -33,4 +41,12 @@
     padding: 2px 4px;
     border-radius: 12px;
     font-size: small;
+}
+.spacer {
+    margin-left: 4px;
+}
+
+.info_logo {
+    font-size: large;
+    color: var(--primary-color);
 }
