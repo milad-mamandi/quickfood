@@ -11,6 +11,7 @@
   --progressbar-active-color: var(--secondary-color);
   --ui-color : #eee;
   --ui-color-active : #e2e2e2;
+  --ui-gradient : linear-gradient(135deg, rgba(238,238,238,1) 0%, rgba(238,238,238,1) 25%, rgba(255,255,255,1) 50%, rgba(238,238,238,1) 75%, rgba(238,238,238,1) 100%);
 }
 
 html,

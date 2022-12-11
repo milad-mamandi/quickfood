@@ -9,17 +9,20 @@ interface dataType {
     id: string,
     name: string,
     address: string,
-    deliveryFee: number,
+    delivery_fee: number,
     rating: number,
-    openTime: string
+    open_time: string
 }
-
+interface propsType {
+    data: Array<dataType>;
+}
 const lightPoppins = Poppins({ weight: '300' })
 
-const Stores: FC = () => {
-    return (
-        <div className={styles.container_store}>
-            {/* <Image src='/images/store/wendy/logo.jpg' alt='Store logo' width={320} height={128} />
+const Stores: FC<propsType> = (props) => {
+    if (props.data.length > 0)
+        return (
+            <div className={styles.container_store}>
+                {/* <Image src='/images/store/wendy/logo.jpg' alt='Store logo' width={320} height={128} />
             <div className={styles.container_desc}>
                 <div className={styles.name}>
                     unga bunga store unga bunga store unga bunga store
@@ -39,8 +42,9 @@ const Stores: FC = () => {
                 </div>
 
             </div> */}
-        </div>
-    )
+            </div>
+        )
+    return null
 }
 
 export default Stores
