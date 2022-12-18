@@ -12,7 +12,7 @@ const poppins = Poppins({ weight: '400' });
 const Food = () => {
     const [isLoading, setLoading] = useState(false)
     const [storeData, setStoreData] = useState([])
-    const [params, setParams] = useState({ 'limit': '10', 'offset': '0' })
+    const [params, setParams] = useState({ 'limit': '32', 'offset': '0' })
 
     useEffect(() => {
         setLoading(true)
