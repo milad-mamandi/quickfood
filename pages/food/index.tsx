@@ -9,7 +9,7 @@ import { Poppins } from "@next/font/google";
 import { useEffect, useState } from "react";
 const poppins = Poppins({ weight: '400' });
 
-const Food = () => {
+const Food : NextPage = () => {
     const [isLoading, setLoading] = useState(false)
     const [storeData, setStoreData] = useState([])
     const [params, setParams] = useState({ 'limit': '32', 'offset': '0' })

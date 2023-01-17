@@ -11,17 +11,43 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  name String
-  email String
+  id       Int    @id @default(autoincrement())
+  name     String
+  email    String
   password String
 }
 
 model Store {
-  id String @id @default(cuid())
-  name String
-  address String
+  id           String @id @default(cuid())
+  name         String
+  address      String
   delivery_fee Float
-  rating Float
-  open_time String
+  rating       Float
+  open_time    String
+  menus        Menu[]
+}
+
+model Menu {
+  id      String @id @default(cuid())
+  name    String
+  foods   Food[]
+  store   Store  @relation(fields: [storeId], references: [id])
+  storeId String
+}
+
+model Food {
+  id         String     @id @default(cuid())
+  picture    Boolean
+  name       String
+  categories Category[]
+  ingredient String
+  price      Float
+  menu       Menu       @relation(fields: [menuId], references: [id])
+  menuId     String
+}
+
+model Category {
+  id    String @id @default(cuid())
+  name  String
+  foods Food[]
 }
