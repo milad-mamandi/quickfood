@@ -13,20 +13,24 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         return res.status(400).json({ message: 'Invalid data type!' })
     }
 
-    const result = await prisma.store.findMany(
+    const result = await prisma.store.findFirst(
         {
             where: {
                 id: storeId,
             },
             include: {
-                menus : {
-                    select : {
-                        name : true,
-                        foods : true
+                menus: {
+                    select: {
+                        name: true,
+                        foods: true
                     }
                 }
             }
         }
     )
-    res.status(200).json({ message: 'Successful!', data: result })
+    if (!result) {
+        res.status(400).json({ message: 'Invalid!'})
+    } else {
+        res.status(200).json({ message: 'Successful!', data: result })
+    }
 }

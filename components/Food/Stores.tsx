@@ -25,7 +25,7 @@ const Stores: FC<propsType> = (props) => {
             <>
                 {props.data.map((store) => {
                     return (
-                        <div className={styles.container_store}>
+                        <div className={styles.container_store} key={store.id}>
                             <Image src={`/images/store/logo.jpg`}
                                 alt='Store logo'
                                 width={320}

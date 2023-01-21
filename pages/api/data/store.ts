@@ -1,11 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from '../../../lib/prisma'
 
-interface reqType {
-    limit: number,
-    offset: number
-}
-
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     if (req.method !== 'GET') {

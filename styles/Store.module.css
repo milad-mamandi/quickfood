@@ -1,3 +1,140 @@
-.container_header {
-    
+.container_main {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.container_sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 32px;
+    padding-right: 160px;
+    gap: 12px;
+    position: sticky;
+    position: -webkit-sticky;
+    white-space: nowrap;
+    height: max-content;
+    top: 24px;
+}
+
+.container_menu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-right: 24px;
+    list-style: none;
+}
+
+.menu {
+    margin: 32px 0;
+}
+
+.menu_name {
+    font-size: x-large;
+    font-weight: bold;
+    margin-bottom:16px;
+}
+
+.menu_foods {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(auto-fit, 350px);
+    row-gap: 24px;
+}
+
+.foodcard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.foodcard:hover {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px;
+    transition: box-shadow 0.3s ease-in-out;
+    padding: 8px;
+    margin: -8px;
+}
+
+.foodcard_header {
+    position: relative;
+}
+
+.foodcard_desc {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.foodcard_desc h3 {
+    margin: 2px 0;
+    font-weight: 500;
+    font-size: large;
+}
+
+.foodcard_desc h6 {
+    margin: 2px 0;
+    font-size: small;
+    font-weight: 300;
+}
+
+.container_header_pic {
+    position: relative;
+    width: 100%;
+    height: 360px;
+}
+
+.button_cart {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border : 1px solid white;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: large;
+    right: 8px;
+    top: 8px;
+    cursor: pointer;
+}
+
+.button_cart:hover {
+    filter: brightness(1.2);
+}
+
+.header_pic {
+    object-fit: cover;
+}
+
+.header_info {
+    margin: 32px;
+}
+
+.header_info h1 {
+    margin: 8px;
+}
+
+.header_info p {
+    margin: 4px 8px;
+}
+
+.info_name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sidebar_button {
+    background-color: transparent;
+    outline: none;
+    border-style: none;
+    cursor: pointer;
+    font-size: large;
 }

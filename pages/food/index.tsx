@@ -9,14 +9,14 @@ import { Poppins } from "@next/font/google";
 import { useEffect, useState } from "react";
 const poppins = Poppins({ weight: '400' });
 
-const Food : NextPage = () => {
+const Food: NextPage = () => {
     const [isLoading, setLoading] = useState(false)
     const [storeData, setStoreData] = useState([])
     const [params, setParams] = useState({ 'limit': '32', 'offset': '0' })
 
     useEffect(() => {
         setLoading(true)
-        const data = fetch('/api/data/store?' + new URLSearchParams(params), { method: 'GET' })
+        fetch('/api/data/store?' + new URLSearchParams(params), { method: 'GET' })
             .then((res) => res.json())
             .then((data) => {
                 setStoreData(data.data)
