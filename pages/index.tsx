@@ -18,7 +18,6 @@ const poppins = Poppins({ weight: '400' });
 
 const Home: NextPage = () => {
   const ctx = useContext(AuthContext)
-  console.log(ctx.isLogged);
 
   return (
     <div>

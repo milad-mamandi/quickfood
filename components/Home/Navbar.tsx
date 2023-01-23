@@ -13,9 +13,9 @@ const Navbar: FC = () => {
         <nav className={styles.navbar}>
             <Link href='/'><p className={`${dosis.className} ${styles.logo}`}>Quick<b className={styles.bold}>Food</b></p></Link>
             <ul className={`${poppins.className} ${styles.nav_ul}`}>
-                <li><a href='#'>Home</a></li>
-                <li><a href='#'>Restaruants</a></li>
-                <li><a href='#'>Services</a></li>
+                <li><Link href='/food'>Home</Link></li>
+                <li><Link href='/food'>Restaruants</Link></li>
+                <li><Link href='/food'>Store Panel</Link></li>
             </ul>
             <div className={styles.auth_container}>
                 <Link href='/signup'><button className={`${styles.button} ${styles.button_signup}`}><FaUserEdit /> Sign up</button></Link>

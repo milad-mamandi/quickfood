@@ -1,4 +1,11 @@
 .container_main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container_button {
     background-color: var(--primary-color);
     height: 40px;
     padding: 8px 16px;
@@ -12,10 +19,113 @@
     margin-left: auto;
 }
 
-.container_main:hover {
+.container_button:hover {
     filter: brightness(1.2);
 }
 
 .icon {
     margin-right: 4px;
+}
+
+.container_popup {
+    display: none;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    background-color: #FFF;
+    top: 64px;
+    border-radius: 4px;
+    padding: 24px;
+}
+
+.container_popup:after {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: white;
+    border-width: 8px;
+    margin-left: -8px;
+}
+
+.container_item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.container_item hr {
+    margin: 16px 0 8px 0px;
+    width: 100%;
+    border: 1px solid #f1f1f1;
+}
+
+.cart_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart_item_desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.cart_item_trash {
+    color: #ccc;
+    font-size: x-large;
+}
+
+.cart_item_trash:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.cart_end {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart_end_price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 0 16px 0 ;
+}
+
+.cart_end_checkout {
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    width: 100%;
+    padding: 16px 0;
+    margin-bottom: 16px;
+    font-size: medium;
+    cursor: pointer;
+}
+
+.cart_end_checkout:hover {
+    filter: brightness(1.1);
+}
+
+.cart_end_clear {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    width: 100%;
+    padding: 16px 0;
+    font-size: medium;
+    cursor: pointer;
 }

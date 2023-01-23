@@ -6,8 +6,10 @@ import { Poppins } from "@next/font/google";
 import Navbar from "../../components/Food/Navbar";
 import NotFound from "../../components/Food/NotFound";
 import { AiFillStar, AiOutlinePlus } from "react-icons/ai";
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useContext, useEffect, useRef, useState } from "react";
 import Loading from "../../components/Food/Loading";
+import UserContext from "../../context/user-context";
+import toast from "react-hot-toast";
 const poppins = Poppins({ weight: '400' });
 
 interface propsType {
@@ -44,6 +46,7 @@ const Store: NextPage = () => {
     const [state, setState] = useState(0)
     const { sid } = router.query
     const ref = useRef(new Array())
+    const ctx = useContext(UserContext)
 
     useEffect(() => {
         if (!sid) return
@@ -58,7 +61,6 @@ const Store: NextPage = () => {
                 }
             })
     }, [sid])
-
 
     if (state === 0) {
         return (
@@ -118,8 +120,21 @@ const Store: NextPage = () => {
                                 <div className={styles.menu_foods}>
                                     {foods.map((food) => {
                                         return (
-                                            <div className={styles.foodcard}>
-                                                <div className={styles.foodcard_header}>
+                                            <div className={styles.foodcard} key={food.id}>
+                                                <div className={styles.foodcard_header} onClick={() => {
+                                                    ctx.addToCart(food.id)
+                                                    toast.success('Item added to cart successfully!', {
+                                                        style: {
+                                                            fontSize: '14px',
+                                                            fontWeight: '700'
+                                                        },
+                                                        iconTheme: {
+                                                            primary: '#FF6701',
+                                                            secondary: '#ffffff'
+                                                        }
+                                                    })
+                                                }
+                                                }>
                                                     <div className={styles.button_cart}>
                                                         <AiOutlinePlus />
                                                     </div>
