@@ -73,17 +73,19 @@ const Cart: FC<propsType> = (props) => {
                                 <div className={styles.container_item} key={k}>
                                     <div className={styles.cart_item}>
                                         <Image src={item.picture ? '/images/store/' + item.id + '.jpg' : '/images/store/food.jpg'} alt='cart item picture'
-                                            width={48} height={48} />
+                                            width={48} height={48} style={{objectFit:"cover"}} quality={100}/>
                                         <div className={styles.cart_item_desc}>
-                                            <span>
+                                            <div className={styles.cart_item_desc_name}>
                                                 {item.name}
-                                            </span>
-                                            <span>
+                                            </div>
+                                            <div className={styles.cart_item_desc_price}>
                                                 {item.price}$
-                                            </span>
+                                            </div>
                                         </div>
-                                        <QuanityInput initial={item.count} id={item.id} />
-                                        <BsTrash className={styles.cart_item_trash} onClick={() => ctx.deleteFromCart(item.id)} />
+                                        <div className={styles.cart_item_action}>
+                                            <QuanityInput initial={item.count} id={item.id} />
+                                            <BsTrash className={styles.cart_item_trash} onClick={() => ctx.deleteFromCart(item.id)} />
+                                        </div>
                                     </div>
                                     <hr />
                                 </div>

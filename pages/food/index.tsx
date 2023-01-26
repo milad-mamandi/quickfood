@@ -12,7 +12,18 @@ const poppins = Poppins({ weight: '400' });
 const Food: NextPage = () => {
     const [isLoading, setLoading] = useState(false)
     const [storeData, setStoreData] = useState([])
-    const [params, setParams] = useState({ 'limit': '32', 'offset': '0' })
+    const [params, setParams] = useState({ 'limit': '32', 'offset': '0', 'sort': '0', 'optn': '0', 'pr': '0', 'df': '0' })
+
+    const fbChange = (data: { sort: number, optn: number, pr: number, df: number }) => {
+        const newParams = {
+            'limit': '32', 'offset': '0',
+            'sort': String(data.sort), 'optn': String(data.optn),
+            'pr': String(data.pr), 'df': String(data.df)
+        }
+        if (JSON.stringify(params) !== JSON.stringify(newParams))
+            console.log(params, newParams);
+            
+    }
 
     useEffect(() => {
         setLoading(true)
@@ -22,7 +33,7 @@ const Food: NextPage = () => {
                 setStoreData(data.data)
                 setLoading(false)
             })
-    }, [])
+    }, [params])
 
     if (isLoading) return (
         <div className={poppins.className}>
@@ -37,7 +48,7 @@ const Food: NextPage = () => {
             <Categories />
             <div className={styles.container_main}>
                 <div className={styles.sidebar}>
-                    <Filterbar />
+                    <Filterbar onChange={fbChange} />
                 </div>
                 <div className={styles.main}>
                     <Stores data={storeData} />

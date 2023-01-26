@@ -1,9 +1,13 @@
-import { FC, useReducer, useState } from 'react'
+import { FC, useEffect, useReducer, useState } from 'react'
 import styles from './Filterbar.module.css'
 import { MdOutlineKeyboardArrowUp, MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import { AiFillTag } from 'react-icons/ai'
 import { RiMedal2Fill } from 'react-icons/ri'
 import Slider from '../UI/Slider'
+
+interface propsType {
+    onChange : (data : { sort: number, optn: number, pr: number, df: number }) => void,
+}
 
 interface filterbarState {
     sort: boolean,
@@ -11,9 +15,11 @@ interface filterbarState {
     pr: boolean,
     df: boolean
 }
-
-interface filberbarAction {
-    type: string
+interface dataState {
+    sort: number,
+    optn: number,
+    pr: number,
+    df: number
 }
 
 const filterbarInit = {
@@ -23,7 +29,19 @@ const filterbarInit = {
     df: false
 }
 
-const filterbarReducer = (state: filterbarState, action: filberbarAction) => {
+const dataInit = {
+    sort: 0,
+    optn: 0,
+    pr: 0,
+    df: 0
+}
+
+interface actionType {
+    type: string,
+    payload?: number
+}
+
+const filterbarReducer = (state: filterbarState, action: actionType) => {
     switch (action.type) {
         case 'sort':
             return { ...state, sort: !state.sort }
@@ -37,9 +55,30 @@ const filterbarReducer = (state: filterbarState, action: filberbarAction) => {
             throw new Error();
     }
 }
-const Filterbar: FC = () => {
+
+const dataReducer = (state: dataState, action: actionType) => {
+    switch (action.type) {
+        case 'sort':
+            return { ...state, sort: action.payload || 0 }
+        case 'optn':
+            return { ...state, optn: action.payload || 0 }
+        case 'pr':
+            return { ...state, pr: action.payload || 0 }
+        case 'df':
+            return { ...state, df: action.payload || 0 }
+        default:
+            throw new Error();
+    }
+}
+
+const Filterbar: FC<propsType> = (props) => {
 
     const [fbState, fbDispatch] = useReducer(filterbarReducer, filterbarInit);
+    const [data, dataDispatch] = useReducer(dataReducer, dataInit);
+
+    useEffect(() => {
+        props.onChange(data)
+    },[data])
 
     return (
         <div className={styles.container_main}>
@@ -51,15 +90,15 @@ const Filterbar: FC = () => {
                 <div className={`${styles.container_content} ${fbState.sort && styles.collapse}`}>
 
                     <label className={styles.container_radio}>Most Popular
-                        <input type="radio" name="radio" />
+                        <input type="radio" name="radio" onClick={() => dataDispatch({ type: 'sort', payload: 1 })} />
                         <span className={styles.checkmark}></span>
                     </label>
                     <label className={styles.container_radio}>Rating
-                        <input type="radio" name="radio" />
+                        <input type="radio" name="radio" onClick={() => dataDispatch({ type: 'sort', payload: 2 })} />
                         <span className={styles.checkmark}></span>
                     </label>
                     <label className={styles.container_radio}>Distance
-                        <input type="radio" name="radio" />
+                        <input type="radio" name="radio" onClick={() => dataDispatch({ type: 'sort', payload: 3 })} />
                         <span className={styles.checkmark}></span>
                     </label>
                 </div>
@@ -99,10 +138,10 @@ const Filterbar: FC = () => {
                 </div>
                 <div className={`${styles.container_content} ${fbState.pr && styles.collapse}`}>
                     <div className={styles.container_price}>
-                        <div className={styles.price}>$</div>
-                        <div className={styles.price}>$$</div>
-                        <div className={styles.price}>$$$</div>
-                        <div className={styles.price}>$$$$</div>
+                        <div className={styles.price} onClick={() => dataDispatch({ type: 'pr', payload: 1 })}>$</div>
+                        <div className={styles.price} onClick={() => dataDispatch({ type: 'pr', payload: 2 })}>$$</div>
+                        <div className={styles.price} onClick={() => dataDispatch({ type: 'pr', payload: 3 })}>$$$</div>
+                        <div className={styles.price} onClick={() => dataDispatch({ type: 'pr', payload: 4 })}>$$$$</div>
                     </div>
                 </div>
             </div >
@@ -112,7 +151,7 @@ const Filterbar: FC = () => {
                     {fbState.df ? <MdOutlineKeyboardArrowDown /> : <MdOutlineKeyboardArrowUp />}
                 </div>
                 <div className={`${styles.container_content} ${fbState.df && styles.collapse}`}>
-                    <Slider />
+                    <Slider onChange={(value) => dataDispatch({ type: 'df', payload: value })} />
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { AiFillStar } from 'react-icons/ai'
 import { MdDeliveryDining } from 'react-icons/md'
 import { Poppins } from '@next/font/google'
+import Link from 'next/link'
 
 interface dataType {
     id: string,
@@ -20,12 +21,12 @@ const lightPoppins = Poppins({ weight: '300' })
 
 const Stores: FC<propsType> = (props) => {
     if (props.data.length > 0) {
-        console.log(props.data.length);
         return (
             <>
                 {props.data.map((store) => {
                     return (
                         <div className={styles.container_store} key={store.id}>
+                            <Link href={'/food/store?sid=' + store.id}>
                             <Image src={`/images/store/logo.jpg`}
                                 alt='Store logo'
                                 width={320}
@@ -48,6 +49,7 @@ const Stores: FC<propsType> = (props) => {
                                     • 15-25 min
                                 </div>
                             </div>
+                            </Link>
                         </div>
                     )
                 })}
