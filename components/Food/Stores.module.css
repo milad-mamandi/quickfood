@@ -1,11 +1,16 @@
 .container_store {
-    width: 320px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    padding: 12px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
     cursor: pointer;
     justify-self: center;
+}
+
+.container_store:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 14px;
 }
 
 .container_desc {

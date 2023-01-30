@@ -3,20 +3,23 @@ import { createContext, useEffect, useState } from "react";
 interface AuthContextInterface {
     email: string,
     isLogged: boolean,
-    setContext: (logged: boolean, email: string) => void,
+    isAdmin: boolean,
+    setContext: (email: string, isLogged: boolean, isAdmin : boolean) => void,
     logout: () => void
 }
 
 const AuthContext = createContext<AuthContextInterface>({
-    isLogged: false,
     email: '',
+    isLogged: false,
+    isAdmin: false,
     setContext: () => { },
     logout: () => { }
 });
 
 export const AuthContextProvider = (props: any) => {
-    const [isLogged, setLogged] = useState(false)
     const [email, setEmail] = useState('')
+    const [isLogged, setLogged] = useState(false)
+    const [isAdmin, setAdmin] = useState(false)
 
     useEffect(() => {
         fetch('../../api/auth/validate', {
@@ -26,18 +29,19 @@ export const AuthContextProvider = (props: any) => {
             .then(response => response.json())
             .then((data) => {
                 if (data.message === 'Successful') {
-                    contextHandler(true, data.email)
+                    contextHandler(data.email, true, data.isAdmin)
                 }
             })
             .catch((e) => {
-                console.log('1');
-                
+                console.log('Error');
             })
     }, [])
-    
-    const contextHandler = (logged: boolean, email: string) => {
-        setLogged(logged)
+
+    const contextHandler = (email: string, logged: boolean, admin: boolean) => {
         setEmail(email)
+        setLogged(logged)
+        
+        setAdmin(admin)
     }
 
     const logoutHandler = async () => {
@@ -46,12 +50,13 @@ export const AuthContextProvider = (props: any) => {
             credentials: 'include'
         })
             .then(response => response.json())
-            .then(() => contextHandler(false, ''))
+            .then(() => contextHandler('', false, false))
     }
 
     const contextValue = {
         email: email,
         isLogged: isLogged,
+        isAdmin: isAdmin,
         setContext: contextHandler,
         logout: logoutHandler
     }

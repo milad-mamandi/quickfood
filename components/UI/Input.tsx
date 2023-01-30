@@ -4,6 +4,7 @@ interface propsType {
     type: string,
     name: string,
     placeHolder: string,
+    inline?: boolean,
     invalid?: boolean,
     onChange?: Function
 }
@@ -21,7 +22,7 @@ const Input = forwardRef<Ref, propsType>((props, ref) => {
     return (
         <div className={styles.container_input}>
             <label className={styles.label}>{props.name}</label>
-            <br />
+            {props.inline ? <span className='spacer _16' style={{display : 'inline-block'}}/> : <br />}
             <input className={`${styles.input} ${invalid && styles.invalid}`}
                 ref={ref}
                 type={props.type}

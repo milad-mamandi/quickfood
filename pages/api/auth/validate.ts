@@ -3,6 +3,7 @@ import { Secret, verify } from 'jsonwebtoken'
 
 interface tokenInterface {
     email: string,
+    isAdmin : boolean,
     iat: number,
     exp: number
 }
@@ -15,7 +16,7 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
 
         verify(token, secret as Secret, function (err, decoded) {
             if (!err) {
-                return res.status(200).json({ message: 'Successful', email: (decoded as tokenInterface).email })
+                return res.status(200).json({ message: 'Successful', email: (decoded as tokenInterface).email, isAdmin :  (decoded as tokenInterface).isAdmin})
             } else {
                 return res.status(200).json({ message: 'Unauthorized' })
             }

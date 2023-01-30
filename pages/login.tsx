@@ -10,6 +10,8 @@ import { AiFillWarning, AiOutlineArrowLeft } from 'react-icons/ai'
 import { Poppins } from '@next/font/google';
 import UserPic from '../public/images/authpage/people_5.webp'
 import AuthContext from '../context/auth-context';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/router';
 
 const poppins = Poppins({ weight: '400' });
 const poppins_slim = Poppins({ weight: '300' });
@@ -39,13 +41,13 @@ const formReducer = (state: loginFormType, action: actionType) => {
     }
 }
 
-const Login : NextPage = () => {
+const Login: NextPage = () => {
     const checkboxRef = useRef<HTMLInputElement>(null);
     const passwordInputRef = createRef<HTMLInputElement>();
     const [form, dispatchForm] = useReducer(formReducer, initialForm);
     const [warning, setWarning] = useState('');
-
     const ctx = useContext(AuthContext);
+    const router = useRouter()
 
     const handleLogin = async (form: loginFormType) => {
         if (form.formValid) {
@@ -60,17 +62,19 @@ const Login : NextPage = () => {
             })
                 .then(response => response.json())
                 .then((data: apiResultType) => {
-                    switch (data.result) {
-                        case 0:
-                            setWarning(data.message);
-                            passwordInputRef.current!.value = '';
-                            dispatchForm({ type: 'Password', payload: '' })
-                            break;
-                        case 1:
-                            setWarning('');
-                            ctx.setContext(true, form.email['value'])
-                            break;
+                    console.log(data);
+                    
+                    if (data.result === 0) {
+                        setWarning(data.message);
+                        passwordInputRef.current!.value = '';
+                        dispatchForm({ type: 'Password', payload: '' })
+                        return
                     }
+                    setWarning('');
+                    
+                    ctx.setContext(form.email['value'], true, data.result === 1 ? false : true)
+                    toast.success('Logged in successfully')
+                    router.push({ pathname: '/food' })
                 })
                 .catch(error => console.error(error))
         } else {
