@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: flex-start;
     margin: 32px;
-    padding-right: 160px;
+    padding-right: 60px;
     gap: 12px;
     position: sticky;
     position: -webkit-sticky;
@@ -39,24 +39,23 @@
 
 .menu_foods {
     display: grid;
-    justify-content: space-between;
-    grid-template-columns: repeat(auto-fit, 350px);
-    row-gap: 24px;
+    grid-template-columns: repeat(auto-fit, 360px);
+    gap: 24px;
 }
 
 .foodcard {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; 
+    padding: 8px 16px;
 }
 
 .foodcard:hover {
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 14px;
     transition: box-shadow 0.3s ease-in-out;
-    padding: 8px;
-    margin: -8px;
 }
 
 .foodcard_header {
@@ -65,7 +64,7 @@
 
 .foodcard_desc {
     width: 100%;
-    display: flex;
+    display: block;
     flex-direction: column;
     align-items: flex-start;
 }
@@ -74,6 +73,9 @@
     margin: 2px 0;
     font-weight: 500;
     font-size: large;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .foodcard_desc h6 {

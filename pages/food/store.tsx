@@ -85,7 +85,7 @@ const Store: NextPage = () => {
             <Navbar />
             <div className={styles.container_header}>
                 <div className={styles.container_header_pic}>
-                    <Image className={styles.header_pic} src={`/images/store/store.jpg`} alt="Store Logo" fill={true} />
+                    <Image className={styles.header_pic} src={'/images/store/' + data.id + '.jpg'} alt="Store Logo" fill={true} />
                 </div>
                 <div className={styles.header_info}>
                     <span className={styles.info_name}>
@@ -138,8 +138,8 @@ const Store: NextPage = () => {
                                                     <div className={styles.button_cart}>
                                                         <AiOutlinePlus />
                                                     </div>
-                                                    <Image src={food.picture ? '/images/store/' + food.id : '/images/store/food.jpg'}
-                                                        alt="food picture" width={350} height={200} />
+                                                    <Image src={food.picture ? '/images/store/' + food.id + '.jpg' : '/images/store/food.jpg'}
+                                                        alt="food picture" width={320} height={200} style={{objectFit : 'cover'}}/>
                                                 </div>
                                                 <div className={styles.foodcard_desc}>
                                                     <h3>

@@ -1,4 +1,4 @@
-import { FC, useState, forwardRef } from 'react';
+import { useState, forwardRef } from 'react';
 import styles from './Input.module.css'
 interface propsType {
     type: string,
@@ -22,7 +22,7 @@ const Input = forwardRef<Ref, propsType>((props, ref) => {
     return (
         <div className={styles.container_input}>
             <label className={styles.label}>{props.name}</label>
-            {props.inline ? <span className='spacer _16' style={{display : 'inline-block'}}/> : <br />}
+            {props.inline ? <span className='spacer _16' style={{ display: 'inline-block' }} /> : <br />}
             <input className={`${styles.input} ${invalid && styles.invalid}`}
                 ref={ref}
                 type={props.type}

@@ -13,10 +13,9 @@
 
 .main {
     width: 100%;
-    justify-content: space-between;
     align-items: flex-start;
     display: grid;
     margin: 24px 32px;
-    grid-template-columns: repeat(auto-fit, 320px);
-    row-gap: 24px;
+    grid-template-columns: repeat(auto-fit, 340px);
+    gap: 24px;
 }

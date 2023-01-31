@@ -8,12 +8,12 @@ interface propsType {
 }
 
 const categories = [
-    {name : 'Pizza', id : 'clc84aqka000avdc8r1cr3wv8'},
-    {name : 'French Fries', id : 'none'},
     {name : 'Burger', id : 'clc84aqka0008vdc8l9xdb0x2'},
-    {name : 'Breakfast', id : 'none'},
-    {name : 'Donut', id : 'none'},
     {name : 'Fried Chicken', id : 'clc84e6re000ivdc88l2w00n5'},
+    {name : 'Sandwich', id : 'clc84aqka000cvdc8r5c3f8c6'},
+    {name : 'Breakfast', id : 'clc84e6re000gvdc89ho26dxv'},
+    {name : 'Treats', id : 'clc84e6re000ovdc89lgf7yi3'},
+    {name : 'Salad', id : 'cldjh1pnv000nvd5gv0irlpp9'},
 ]
 
 const Categories: FC<propsType> = (props) => {

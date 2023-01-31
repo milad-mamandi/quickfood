@@ -4,6 +4,8 @@ import { BsFillCartFill, BsTrash } from 'react-icons/bs'
 import Image from 'next/image'
 import QuanityInput from './QuanityInput'
 import UserContext from '../../context/user-context'
+import AuthContext from '../../context/auth-context'
+import { toast } from 'react-hot-toast'
 
 interface propsType {
     items: string[],
@@ -20,6 +22,7 @@ interface dataType extends resultType {
 
 const Cart: FC<propsType> = (props) => {
     const ctx = useContext(UserContext)
+    const uctx = useContext(AuthContext)
     const [cartData, setCartData] = useState<Array<dataType>>([])
     const [hover, setHover] = useState(false)
 
@@ -49,6 +52,16 @@ const Cart: FC<propsType> = (props) => {
         return Math.round(price * 10) / 10
     }
 
+    const handleOrder = () => {
+        const newData = { user: uctx.email, data: cartData }
+        fetch('/api/data/cart', { method: 'POST', body: JSON.stringify(newData) })
+            .then(() => {
+                setCartData([])
+                toast.success('Successful')
+            })
+    }
+
+
     return (
         <div className={styles.container_main} onMouseEnter={() => setHover(true)} >
             <div className={styles.container_button}>
@@ -73,7 +86,7 @@ const Cart: FC<propsType> = (props) => {
                                 <div className={styles.container_item} key={k}>
                                     <div className={styles.cart_item}>
                                         <Image src={item.picture ? '/images/store/' + item.id + '.jpg' : '/images/store/food.jpg'} alt='cart item picture'
-                                            width={48} height={48} style={{objectFit:"cover"}} quality={100}/>
+                                            width={48} height={48} style={{ objectFit: "cover" }} quality={100} />
                                         <div className={styles.cart_item_desc}>
                                             <div className={styles.cart_item_desc_name}>
                                                 {item.name}
@@ -96,7 +109,7 @@ const Cart: FC<propsType> = (props) => {
                                 Subtotal: <span>{getPrice()}$</span>
                             </div>
                             <div>
-                                <button className={styles.cart_end_checkout}>
+                                <button className={styles.cart_end_checkout} onClick={() => handleOrder()}>
                                     Checkout
                                 </button>
                                 <button className={styles.cart_end_clear} onClick={ctx.clearCart}>

@@ -17,10 +17,11 @@ model User {
   password String
   owner    Boolean @default(false)
   store    Store?
+  order    Order[]
 }
 
 model Store {
-  id           String @id @default(cuid())
+  id           String  @id @default(cuid())
   name         String
   address      String
   delivery_fee Float
@@ -29,6 +30,7 @@ model Store {
   menus        Menu[]
   user         User?   @relation(fields: [userId], references: [id])
   userId       Int?    @unique
+  Order        Order[]
 }
 
 model Menu {
@@ -48,6 +50,18 @@ model Food {
   price      Float
   menu       Menu       @relation(fields: [menuId], references: [id])
   menuId     String
+  order      Order?     @relation(fields: [orderId], references: [id])
+  orderId    String?
+}
+
+model Order {
+  id       String @id @default(cuid())
+  items    Food[]
+  subtotal Float
+  user     User   @relation(fields: [userId], references: [id])
+  userId   Int
+  store    Store  @relation(fields: [storeId], references: [id])
+  storeId  String
 }
 
 model Category {

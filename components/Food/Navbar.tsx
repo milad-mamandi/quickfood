@@ -20,7 +20,7 @@ const Navbar: FC = () => {
                 <GiHamburgerMenu className={styles.nav_icon} />
                 <Link href='/'><p className={`${dosis.className} ${styles.logo}`}>
                     Quick<b className={styles.logo_secondary}>Food</b></p></Link>
-                <Location location='New York' time='Now' /> 
+                <Location location='Tehran' time='Now' /> 
                 <span className='spacer 16'/>
                 <Searchbar placeholder='Restaurants, food, drinks, etc...'/>
                 <Cart items={ctx.cart}/>
