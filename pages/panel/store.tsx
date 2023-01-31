@@ -41,7 +41,6 @@ const StorePanel: FC<propsType> = (props) => {
 
     const [data, dispatchData] = useReducer(formReducer, formInit)
 
-
     const handleStore = () => {
         const formData = new FormData()
         formData.append('storeID', props.data.id)
